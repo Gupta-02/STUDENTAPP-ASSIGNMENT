@@ -1,6 +1,11 @@
 # 🎓 Smart Study Assistant for School Students
 
-> An AI-powered study companion that helps students learn effectively through PDF analysis, intelligent chat, quiz generation, and progress tracking.
+> An AI-powered study companion that helps students learn effectively through PDF analysis, intelligent chat, quiz generation, and progress tracking. 
+
+
+
+<img width="1913" height="903" alt="image" src="https://github.com/user-attachments/assets/9744bf60-4453-44dd-a9ab-1e401bddaf8e" />
+
 
 ![Status](https://img.shields.io/badge/status-active-success.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
@@ -554,6 +559,35 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - LangChain team for excellent documentation
 - NCERT for educational content
 - React and Node.js communities
+
+
+
+Local Testing 
+
+
+## uploading Pdf
+
+<img width="1909" height="544" alt="image" src="https://github.com/user-attachments/assets/3b4bf719-1d37-4aa1-a067-bc859d64a421" /> 
+
+
+## Chat Section
+
+<img width="1892" height="739" alt="image" src="https://github.com/user-attachments/assets/df63d500-3eeb-47a0-98a8-fb1aaa0a0e5b" /> 
+
+## Quiz Section 
+
+<img width="1918" height="768" alt="image" src="https://github.com/user-attachments/assets/fed5c902-be2c-4b1b-82a1-c3d85f3dd94b" /> 
+
+
+## From Selected pdf the relavent Videos
+
+<img width="1529" height="568" alt="image" src="https://github.com/user-attachments/assets/c32b2362-22b2-4d11-a093-651299c1591a" /> 
+
+
+## From The Progress  
+
+<img width="1898" height="808" alt="image" src="https://github.com/user-attachments/assets/2ac21cb7-fa62-4508-9b15-6b502c94d2d5" />
+
 
 ---
 

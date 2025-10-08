@@ -2,9 +2,7 @@ import express from 'express';
 import multer from 'multer';
 import path from 'path';
 import { processPDF } from '../services/pdfService.js';
-
 const router = express.Router();
-
 // Configure multer for file upload
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -15,7 +13,6 @@ const storage = multer.diskStorage({
     cb(null, uniqueSuffix + path.extname(file.originalname));
   },
 });
-
 const upload = multer({
   storage,
   limits: { fileSize: parseInt(process.env.MAX_FILE_SIZE) || 10 * 1024 * 1024 }, // 10MB

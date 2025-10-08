@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Plus, MessageSquare, Trash2, BookOpen } from 'lucide-react';
-import { useApp } from '../contexts/AppContext';
+import { useApp } from '../contexts/useApp';
 import { Chat as ChatType, Message } from '../lib/storage';
 import { generateChatResponse } from '../lib/aiService';
 

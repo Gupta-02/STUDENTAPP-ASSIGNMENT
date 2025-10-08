@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { FileText, Upload, Trash2, Eye, CheckSquare, Square } from 'lucide-react';
-import { useApp } from '../contexts/AppContext';
+import { useApp } from '../contexts/useApp';
 import { PDF } from '../lib/storage';
+
+// API base URL - use environment variable in production, relative path in development
+const API_BASE_URL = import.meta.env.DEV ? '' : (import.meta.env.VITE_API_BASE_URL || 'https://smart-study-assistant-backend.onrender.com');
 
 export function Library() {
   const { pdfs, selectedPdfIds, setSelectedPdfIds, addPDF, deletePDF } = useApp();
@@ -17,7 +20,7 @@ export function Library() {
         formData.append('pdf', file);
 
         // Upload to backend
-        const response = await fetch('/api/upload-pdf', {
+        const response = await fetch(`${API_BASE_URL}/api/upload-pdf`, {
           method: 'POST',
           body: formData,
         });

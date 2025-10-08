@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Play, RotateCcw, CheckCircle, XCircle, BookOpen, Lightbulb } from 'lucide-react';
-import { useApp } from '../contexts/AppContext';
+import { useApp } from '../contexts/useApp';
 import { Quiz as QuizType, QuizAttempt } from '../lib/storage';
 import { generateQuizQuestions } from '../lib/aiService';
 
@@ -129,14 +129,14 @@ export function Quiz() {
             <label className="block text-sm font-medium text-black mb-3">Question Type</label>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
               {[
-                { value: 'mcq', label: 'MCQ' },
-                { value: 'saq', label: 'Short Answer' },
-                { value: 'laq', label: 'Long Answer' },
-                { value: 'mixed', label: 'Mixed' },
+                { value: 'mcq' as const, label: 'MCQ' },
+                { value: 'saq' as const, label: 'Short Answer' },
+                { value: 'laq' as const, label: 'Long Answer' },
+                { value: 'mixed' as const, label: 'Mixed' },
               ].map((type) => (
                 <button
                   key={type.value}
-                  onClick={() => setQuizType(type.value as any)}
+                  onClick={() => setQuizType(type.value)}
                   className={`py-3 px-4 rounded-lg border-2 font-medium transition-colors ${
                     quizType === type.value
                       ? 'bg-black text-white border-black'

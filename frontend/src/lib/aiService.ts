@@ -1,6 +1,8 @@
 import { Question } from './storage';
 
 const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY || '';
+// API base URL - use environment variable in production, relative path in development
+const API_BASE_URL = import.meta.env.DEV ? '' : (import.meta.env.VITE_API_BASE_URL || 'https://smart-study-assistant-backend.onrender.com');
 
 export async function generateQuizQuestions(
   pdfContext: string,
@@ -11,7 +13,7 @@ export async function generateQuizQuestions(
   // If we have a pdfId, use the backend API
   if (pdfId) {
     try {
-      const response = await fetch('/api/quiz/generate-quiz', {
+      const response = await fetch(`${API_BASE_URL}/api/quiz/generate-quiz`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -24,7 +26,7 @@ export async function generateQuizQuestions(
 
       if (response.ok) {
         const data = await response.json();
-        let questions = data.questions.map((q: any, index: number) => ({
+        const questions = data.questions.map((q: { id?: string; type?: string; question: string; options?: string[]; correctAnswer: string; explanation?: string; topic?: string }, index: number) => ({
           id: q.id || `q${index + 1}`,
           type: q.type || type,
           question: q.question,
@@ -74,7 +76,7 @@ export async function generateQuizQuestions(
     const questions = JSON.parse(content);
 
     // Validate and format the questions
-    return questions.map((q: any, index: number) => ({
+    return questions.map((q: { id?: string; type?: string; question: string; options?: string[]; correctAnswer: string; explanation?: string; topic?: string }, index: number) => ({
       id: q.id || `q${index + 1}`,
       type: q.type || type,
       question: q.question,
@@ -98,7 +100,7 @@ export async function generateChatResponse(
   // If we have a pdfId, use the backend API for RAG
   if (pdfId) {
     try {
-      const response = await fetch('/api/chat', {
+      const response = await fetch(`${API_BASE_URL}/api/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -175,7 +177,7 @@ export async function recommendYouTubeVideos(topic: string): Promise<Array<{
     );
 
     const data = await response.json();
-    return data.items.map((item: any) => ({
+    return data.items.map((item: { id: { videoId: string }; snippet: { title: string; channelTitle: string; thumbnails: { medium: { url: string } } } }) => ({
       videoId: item.id.videoId,
       title: item.snippet.title,
       channel: item.snippet.channelTitle,
@@ -380,12 +382,12 @@ function generateMockQuestions(type: 'mcq' | 'saq' | 'laq' | 'mixed', count: num
   return questions;
 }
 
-function generateMockChatResponse(_message: string): {
+function generateMockChatResponse(message: string): {
   content: string;
   citations: Array<{ page: number; snippet: string; pdfId: string }>;
 } {
   return {
-    content: `Great question! Based on the physics textbook, here's what I can explain:\n\nThe concept you're asking about relates to fundamental principles in physics. (p. 45: "Force is defined as the rate of change of momentum") This means that when we apply force to an object, we're essentially changing its momentum over time.\n\nKey points to remember:\n1. Force and motion are interconnected\n2. Understanding units is crucial\n3. Real-world applications help solidify concepts\n\nWould you like me to elaborate on any specific aspect?`,
+    content: `Great question about "${message}"! Based on the physics textbook, here's what I can explain:\n\nThe concept you're asking about relates to fundamental principles in physics. (p. 45: "Force is defined as the rate of change of momentum") This means that when we apply force to an object, we're essentially changing its momentum over time.\n\nKey points to remember:\n1. Force and motion are interconnected\n2. Understanding units is crucial\n3. Real-world applications help solidify concepts\n\nWould you like me to elaborate on any specific aspect?`,
     citations: [
       { page: 45, snippet: 'Force is defined as the rate of change of momentum', pdfId: 'ncert-physics-xi-1' },
     ],

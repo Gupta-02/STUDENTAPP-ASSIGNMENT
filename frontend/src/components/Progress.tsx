@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { TrendingUp, TrendingDown, Award, Target, Youtube } from 'lucide-react';
-import { useApp } from '../contexts/AppContext';
+import { useApp } from '../contexts/useApp';
 import { recommendYouTubeVideos } from '../lib/aiService';
 
 export function Progress() {

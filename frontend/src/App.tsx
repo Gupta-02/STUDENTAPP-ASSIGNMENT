@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { AppProvider, useApp } from './contexts/AppContext';
+import { AppProvider } from './contexts/AppContext';
+import { useApp } from './contexts/useApp';
 import { Auth } from './components/Auth';
 import { Layout } from './components/Layout';
 import { Library } from './components/Library';

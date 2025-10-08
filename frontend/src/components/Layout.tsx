@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { BookOpen, MessageSquare, GraduationCap, BarChart3, Youtube, LogOut, Menu, X } from 'lucide-react';
-import { useApp } from '../contexts/AppContext';
+import { useApp } from '../contexts/useApp';
 
 interface LayoutProps {
   children: ReactNode;

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useState, useEffect, ReactNode } from 'react';
 import { storage, PDF, Chat, Message, Quiz, QuizAttempt, ProgressData } from '../lib/storage';
 import { SEEDED_PDFS } from '../lib/mockData';
 
@@ -26,6 +26,8 @@ interface AppContextType {
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
+
+export { AppContext };
 
 export function AppProvider({ children }: { children: ReactNode }) {
   const [pdfs, setPdfs] = useState<PDF[]>([]);
@@ -145,12 +147,4 @@ export function AppProvider({ children }: { children: ReactNode }) {
       {children}
     </AppContext.Provider>
   );
-}
-
-export function useApp() {
-  const context = useContext(AppContext);
-  if (!context) {
-    throw new Error('useApp must be used within AppProvider');
-  }
-  return context;
 }

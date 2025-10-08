@@ -54,21 +54,23 @@ The **Smart Study Assistant** is a comprehensive learning platform designed spec
 
 | Feature | Status | Description |
 |---------|--------|-------------|
-| PDF Upload & Selection | ✅ | Upload PDFs or choose from NCERT library |
+| PDF Upload & Processing | ✅ | Upload PDFs with automatic backend processing, text extraction, and vector embeddings |
 | PDF Viewer | ✅ | Interactive PDF viewer with zoom and navigation |
-| AI Chat Interface | ✅ | ChatGPT-style interface with context awareness |
-| RAG Implementation | ✅ | Retrieval-Augmented Generation for accurate answers |
-| Quiz Generator | ✅ | Generate MCQ, SAQ, and mixed quizzes |
+| AI Chat Interface | ✅ | ChatGPT-style interface with RAG and backend API integration |
+| RAG Implementation | ✅ | Retrieval-Augmented Generation with FAISS vector search |
+| Quiz Generator | ✅ | Generate MCQ, SAQ, LAQ, Mixed quizzes from processed PDF content |
 | Progress Dashboard | ✅ | Track scores, attempts, and weak topics |
+| YouTube Video Integration | ✅ | Dedicated Videos tab with topic-based recommendations |
+| Citation Support | ✅ | Show source pages and snippets for answers |
 | Responsive UI | ✅ | Mobile-friendly Tailwind design |
-| Citation Support | ✅ | Show source pages for answers |
+| Backend API Integration | ✅ | Full-stack integration for PDF processing, chat, and quizzes |
 
 ### 🔄 In Progress
 
-- [ ] YouTube Video Integration
 - [ ] Advanced Analytics
 - [ ] Study Time Tracker
 - [ ] Multi-user Support
+- [ ] Offline Mode
 
 ---
 
@@ -541,7 +543,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Your Name**
-- GitHub: [@yourusername]
+- GitHub: [@Gupta-02]
 - Email: your.email@example.com
 
 ---
@@ -557,7 +559,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-For support, email your.email@example.com or open an issue on GitHub.
+For support, email saiprathyun85@gmail.com or open an issue on GitHub.
 
 ---
 
